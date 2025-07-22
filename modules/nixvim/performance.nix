@@ -1,9 +1,4 @@
-{
-  pkgs,
-  self,
-  system,
-  ...
-}: {
+{pkgs, ...}: {
   performance = {
     byteCompileLua = {
       enable = true;
@@ -15,13 +10,11 @@
     combinePlugins = {
       enable = true;
       standalonePlugins = with pkgs.vimPlugins; [
-        "firenvim"
         "neotest"
         "nvim-treesitter"
         mini-nvim
         overseer-nvim
         vs-tasks-nvim
-        lualine-nvim
       ];
     };
   };

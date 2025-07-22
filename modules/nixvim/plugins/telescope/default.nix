@@ -4,14 +4,10 @@
   ...
 }: {
   imports = [
-    # ./file-browser.nix
-    # ./frecency.nix
-    # ./fzf-native.nix
-    # ./live_grep.nix
-    # ./manix.nix
-    # ./ui-select.nix
-    # ./undo.nix
-    # ./vs-tasks.nix
+    ./fzf-native.nix
+    ./manix.nix
+    ./ui-select.nix
+    ./vs-tasks.nix
   ];
 
   plugins.telescope = {

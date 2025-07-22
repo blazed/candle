@@ -48,14 +48,21 @@
               };
 
               inlayHints = {
-                bindingModeHints.enable = true;
+                chaningHints.enable = false;
+                closingBraceHints.enable = false;
+                genericParameterHints.const.enable = false;
+                parameterHints.enable = false;
+                renderColons = false;
+                typeHints.enable = false;
+
+                bindingModeHints.enable = false;
                 closureStyle = "rust_analyzer";
-                closureReturnTypeHints.enable = "always";
-                discriminantHints.enable = "always";
-                expressionAdjustmentHints.enable = "always";
-                implicitDrops.enable = true;
-                lifetimeElisionHints.enable = "always";
-                rangeExclusiveHints.enable = true;
+                closureReturnTypeHints.enable = "never";
+                discriminantHints.enable = "never";
+                expressionAdjustmentHints.enable = "never";
+                implicitDrops.enable = false;
+                lifetimeElisionHints.enable = "never";
+                rangeExclusiveHints.enable = false;
               };
 
               procMacro = {

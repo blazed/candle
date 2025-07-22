@@ -17,6 +17,11 @@
         window = {
           position = "vertical";
         };
+        shell = {
+          separator = ";";
+          pushd_cmd = "use std/dirs shells-aliases *; enter";
+          popd_cmd = "exit";
+        };
       };
     };
 

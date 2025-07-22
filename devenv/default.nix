@@ -6,7 +6,7 @@
   name = "candle";
 
   packages = with pkgs; [
-    alejandra
+    nixfmt
     just
   ];
 

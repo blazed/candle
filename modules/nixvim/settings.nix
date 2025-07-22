@@ -69,6 +69,7 @@
     softtabstop = 0;
     expandtab = true;
     autoindent = true;
+    autoread = true;
 
     textwidth = 0;
 

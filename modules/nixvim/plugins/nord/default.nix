@@ -1,11 +1,10 @@
-{config, ...}: {
+{
   plugins = {
     lualine.settings.options.theme = "catppuccin";
   };
 
   colorschemes.catppuccin = {
     enable = true;
-    # lazyLoad.enable = config.plugins.lz-n.enable;
 
     settings = {
       default_integration = true;

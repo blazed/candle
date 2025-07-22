@@ -80,8 +80,6 @@
         };
 
         popupmenu.backend = "nui";
-        # Doesn't support the standard cmdline completions
-        # popupmenu.backend = "cmp";
 
         presets = {
           bottom_search = false;
@@ -128,13 +126,17 @@
         views = {
           cmdline_popup = {
             border = {
-              style = "single";
+              style = "rounded";
+            };
+            position = {
+              row = "30%";
+              col = "50%";
             };
           };
 
           confirm = {
             border = {
-              style = "single";
+              style = "rounded";
               text = {
                 top = "";
               };

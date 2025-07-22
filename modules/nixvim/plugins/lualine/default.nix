@@ -60,6 +60,11 @@ in {
           ];
         };
 
+        component_separators = "";
+        section_separators = {
+          left = "";
+          right = "";
+        };
         globalstatus = true;
       };
 
@@ -67,7 +72,37 @@ in {
       # | A | B | C                             X | Y | Z |
       # +-------------------------------------------------+
       sections = {
-        lualine_a = ["mode"];
+        lualine_a = [
+          {
+            __raw =
+              #lua
+              ''
+                function()
+                  local linemode = require "lualine.utils.mode"
+                  local m = linemode.get_mode()
+                  if m == "NORMAL" then
+                    return "N"
+                  elseif m == "VISUAL" then
+                    return "V"
+                  elseif m == "SELECT" then
+                    return "S"
+                  elseif m == "INSERT" then
+                    return "I"
+                  elseif m == "REPLACE" then
+                    return "R"
+                  elseif m == "COMMAND" then
+                    return "C"
+                  elseif m == "EX" then
+                    return "X"
+                  elseif m == "TERMINAL" then
+                    return "T"
+                  else
+                    return m
+                  end
+                end
+              '';
+          }
+        ];
         lualine_b = ["branch"];
         lualine_c = [
           "filename"
@@ -155,7 +190,6 @@ in {
 
       tabline = lib.mkIf (!config.plugins.bufferline.enable) {
         lualine_a = [
-          # NOTE: not high priority since i use bufferline now, but should fix left separator color
           {
             __unkeyed-1 = "buffers";
             symbols = {
@@ -180,7 +214,6 @@ in {
           })
         ];
 
-        # TODO: Need to dynamically hide/show component so navic takes precedence on smaller width
         lualine_x = [
           {
             __unkeyed-1 = "filename";
