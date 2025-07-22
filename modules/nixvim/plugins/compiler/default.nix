@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   plugins = {
     compiler = {
       enable = true;

@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   extraPlugins = [
     pkgs.vimPlugins.vs-tasks-nvim
   ];

@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   globals = {
     load_ruby_provider = 0;
     load_perl_provider = 0;
@@ -60,7 +61,7 @@
     laststatus = 3;
     fileencoding = "utf-8";
     termguicolors = true;
-    spelllang = lib.mkDefault ["en_us"];
+    spelllang = lib.mkDefault [ "en_us" ];
     spell = true;
     wrap = false;
 

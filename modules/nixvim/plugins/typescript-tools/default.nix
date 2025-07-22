@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   plugins = {
     typescript-tools = {
       enable = true;

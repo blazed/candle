@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   autoCmd = [
     (lib.mkIf (!lib.elem "trim_whitespace" config.plugins.conform-nvim.settings.formatters_by_ft."_") {
       event = "BufWrite";
@@ -10,15 +11,14 @@
     })
 
     # Handle performance on large files
-    (
-      lib.mkIf
+    (lib.mkIf
       (
         (!config.plugins.snacks.enable)
         || (config.plugins.snacks.enable && (!config.plugins.snacks.settings.bigfile.enabled))
       )
       {
         event = "BufEnter";
-        pattern = ["*"];
+        pattern = [ "*" ];
         callback.__raw =
           #lua
           ''

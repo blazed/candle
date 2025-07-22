@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   plugins = {
     spectre = {
       enable = !config.plugins.grug-far.enable;

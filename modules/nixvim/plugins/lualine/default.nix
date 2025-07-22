@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   cond.__raw =
     #lua
     ''
@@ -23,7 +24,8 @@
         end
       end
     '';
-in {
+in
+{
   plugins.lualine = {
     enable = true;
 
@@ -103,14 +105,14 @@ in {
               '';
           }
         ];
-        lualine_b = ["branch"];
+        lualine_b = [ "branch" ];
         lualine_c = [
           "filename"
           "diff"
         ];
 
         lualine_x = [
-          {__raw = ''Snacks.profiler.status()'';}
+          { __raw = ''Snacks.profiler.status()''; }
           {
             __unkeyed-1 = "diagnostics";
             diagnostics_color = {
@@ -197,7 +199,7 @@ in {
             };
           }
         ];
-        lualine_z = ["tabs"];
+        lualine_z = [ "tabs" ];
       };
 
       winbar = {

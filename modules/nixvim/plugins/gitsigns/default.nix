@@ -2,9 +2,11 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   inherit (builtins) toJSON;
-in {
+in
+{
   plugins = {
     gitsigns = {
       enable = true;

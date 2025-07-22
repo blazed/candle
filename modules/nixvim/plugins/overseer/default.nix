@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   plugins = {
     overseer = {
       enable = true;

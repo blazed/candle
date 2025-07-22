@@ -2,11 +2,13 @@
   pkgs,
   ansiEscape,
   ...
-}: {
+}:
+{
   name = "candle";
 
   packages = with pkgs; [
     nixfmt
+    nixfmt-tree
     just
   ];
 

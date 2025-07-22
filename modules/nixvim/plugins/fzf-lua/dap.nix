@@ -2,7 +2,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   keymaps = lib.mkIf (config.plugins.fzf-lua.enable && config.plugins.dap.enable) [
     {
       mode = "n";

@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   plugins = {
     devdocs = {
       enable = true;

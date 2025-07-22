@@ -2,12 +2,13 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   plugins = {
     avante = {
       enable = true;
 
-      lazyLoad.settings.event = ["DeferredUIEnter"];
+      lazyLoad.settings.event = [ "DeferredUIEnter" ];
 
       settings = {
         mappings = {

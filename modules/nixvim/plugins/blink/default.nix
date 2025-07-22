@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   extraPackages = lib.mkIf config.plugins.blink-cmp.enable (
-    with pkgs; [
+    with pkgs;
+    [
       gh
       wordnet
     ]
@@ -66,7 +68,7 @@
                     __unkeyed-2 = "kind";
                     gap = 1;
                   }
-                  {__unkeyed-1 = "source_name";}
+                  { __unkeyed-1 = "source_name"; }
                 ];
                 components = {
                   kind_icon = {
@@ -157,23 +159,17 @@
                   ${lib.optionalString config.plugins.blink-cmp-git.enable "table.insert(git_sources, 'git')"}
                   ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-cmp-conventional-commits config.extraPlugins) "table.insert(git_sources, 'conventional_commits')"}
                   return git_sources
-                ${
-                lib.optionalString config.plugins.avante.enable
-                ''
+                ${lib.optionalString config.plugins.avante.enable ''
                   elseif vim.bo.filetype == 'AvanteInput' then
                     return { 'buffer', 'avante' }
-                ''
-              }
-                ${
-                lib.optionalString config.plugins.easy-dotnet.enable
-                ''
+                ''}
+                ${lib.optionalString config.plugins.easy-dotnet.enable ''
                   elseif vim.bo.filetype == "cs" or vim.bo.filetype == "fsharp" or vim.bo.filetype == "vb" or vim.bo.filetype == "razor" or vim.bo.filetype == "xml" then
                     -- For .NET filetypes, add easy-dotnet to the sources
                     local dotnet_sources = vim.deepcopy(common_sources)
                     table.insert(dotnet_sources, 'easy-dotnet')
                     return dotnet_sources
-                ''
-              }
+                ''}
                 else
                   return common_sources
                 end
@@ -191,15 +187,15 @@
               };
               conventional_commits =
                 lib.mkIf (lib.elem pkgs.vimPlugins.blink-cmp-conventional-commits config.extraPlugins)
-                {
-                  name = "Conventional Commits";
-                  module = "blink-cmp-conventional-commits";
-                  enabled.__raw = ''
-                    function()
-                      return vim.bo.filetype == 'gitcommit'
-                    end
-                  '';
-                };
+                  {
+                    name = "Conventional Commits";
+                    module = "blink-cmp-conventional-commits";
+                    enabled.__raw = ''
+                      function()
+                        return vim.bo.filetype == 'gitcommit'
+                      end
+                    '';
+                  };
               dictionary = lib.mkIf config.plugins.blink-cmp-dictionary.enable {
                 name = "Dict";
                 module = "blink-cmp-dictionary";
@@ -259,7 +255,7 @@
                   end
                 '';
                 opts = {
-                  ignore = {};
+                  ignore = { };
                   only_semantic_versions = true;
                   only_latest_version = false;
                 };

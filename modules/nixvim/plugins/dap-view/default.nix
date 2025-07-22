@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   plugins = {
     dap-view = {
       enable = !config.plugins.dap-ui.enable;

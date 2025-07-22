@@ -3,13 +3,15 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   extraLuaPackages = ps: [
     ps.tiktoken_core
   ];
 
   extraPlugins = lib.optionals (config.plugins.copilot-lua.enable && config.plugins.lualine.enable) (
-    with pkgs.vimPlugins; [
+    with pkgs.vimPlugins;
+    [
       copilot-lualine
     ]
   );
@@ -18,7 +20,7 @@
     copilot-lua = {
       enable = true;
 
-      lazyLoad.settings.event = ["InsertEnter"];
+      lazyLoad.settings.event = [ "InsertEnter" ];
 
       settings = {
         panel.enabled = !config.plugins.blink-cmp-copilot.enable;

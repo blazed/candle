@@ -66,7 +66,10 @@
           statement_block = "// %s";
         };
         twig = "{# %s #}";
-        typescript = ["// %s" "/* %s */"];
+        typescript = [
+          "// %s"
+          "/* %s */"
+        ];
         vue = "<!-- %s -->";
         xaml = "<!-- %s -->";
       };

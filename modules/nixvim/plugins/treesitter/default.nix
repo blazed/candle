@@ -4,14 +4,14 @@
   self,
   system,
   ...
-}: {
+}:
+{
   plugins = {
     treesitter = {
       enable = true;
 
       folding = true;
-      grammarPackages =
-        config.plugins.treesitter.package.passthru.allGrammars;
+      grammarPackages = config.plugins.treesitter.package.passthru.allGrammars;
       nixvimInjections = true;
 
       settings = {

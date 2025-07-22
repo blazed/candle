@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   plugins = {
     conform-nvim = {
       enable = true;
@@ -12,7 +13,7 @@
         cmd = [
           "ConformInfo"
         ];
-        event = ["BufWritePre"];
+        event = [ "BufWritePre" ];
       };
 
       luaConfig.pre = ''
@@ -83,43 +84,43 @@
             "shellharden"
             "shfmt"
           ];
-          bicep = ["bicep"];
-          c = ["clang_format"];
-          cmake = ["cmake-format"];
-          cpp = ["clang_format"];
-          cs = ["csharpier"];
-          css = ["stylelint"];
-          fish = ["fish_indent"];
-          fsharp = ["fantomas"];
-          gdscript = ["gdformat"];
-          go = ["golines"];
-          java = ["google-java-format"];
+          bicep = [ "bicep" ];
+          c = [ "clang_format" ];
+          cmake = [ "cmake-format" ];
+          cpp = [ "clang_format" ];
+          cs = [ "csharpier" ];
+          css = [ "stylelint" ];
+          fish = [ "fish_indent" ];
+          fsharp = [ "fantomas" ];
+          gdscript = [ "gdformat" ];
+          go = [ "golines" ];
+          java = [ "google-java-format" ];
           javascript = {
             __unkeyed-1 = "prettierd";
             __unkeyed-2 = "biome";
             timeout_ms = 2000;
             stop_after_first = true;
           };
-          json = ["jq"];
-          html = ["prettierd"];
-          kdl = ["kdlfmt"];
-          lua = ["stylua"];
-          markdown = ["deno_fmt"];
-          nix = ["nixfmt"];
+          json = [ "jq" ];
+          html = [ "prettierd" ];
+          kdl = [ "kdlfmt" ];
+          lua = [ "stylua" ];
+          markdown = [ "deno_fmt" ];
+          nix = [ "nixfmt" ];
           python = [
             "isort"
             "ruff"
           ];
-          rust = ["rustfmt"];
+          rust = [ "rustfmt" ];
           sh = [
             "shellcheck"
             "shellharden"
             "shfmt"
           ];
-          sql = ["sqlfluff"];
-          swift = ["swift_format"];
-          terraform = ["terraform_fmt"];
-          toml = ["taplo"];
+          sql = [ "sqlfluff" ];
+          swift = [ "swift_format" ];
+          terraform = [ "terraform_fmt" ];
+          toml = [ "taplo" ];
           typescript = {
             __unkeyed-1 = "prettierd";
             __unkeyed-2 = "biome";
@@ -130,8 +131,8 @@
             "xmlformat"
             "xmllint"
           ];
-          yaml = ["yamlfmt"];
-          zig = ["zigfmt"];
+          yaml = [ "yamlfmt" ];
+          zig = [ "zigfmt" ];
           "_" = [
             "squeeze_blanks"
             "trim_whitespace"
@@ -146,7 +147,7 @@
             env = {
               BIOME_CONFIG_PATH = pkgs.writeTextFile {
                 name = "biome.json";
-                text = lib.generators.toJSON {} {
+                text = lib.generators.toJSON { } {
                   "$schema" = "${pkgs.biome}/node_modules/@biomejs/biome/configuration_schema.json";
                   formatter.useEditorconfig = true;
                 };

@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   plugins.telescope = {
     extensions = {
       manix.enable = true;

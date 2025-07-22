@@ -2,7 +2,8 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   get_bufnrs.__raw =
     #lua
     ''
@@ -18,7 +19,8 @@
         return valid_bufs
       end
     '';
-in {
+in
+{
   plugins = {
     cmp = {
       enable = !config.plugins.blink-cmp.enable;
@@ -141,7 +143,7 @@ in {
             name = "emoji";
             priority = 100;
           }
-          {name = "nixpkgs_maintainers";}
+          { name = "nixpkgs_maintainers"; }
         ];
 
         window = {

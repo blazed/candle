@@ -3,8 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
-  extraPlugins = lib.mkIf config.plugins.lz-n.enable [pkgs.vimPlugins.lzn-auto-require];
+}:
+{
+  extraPlugins = lib.mkIf config.plugins.lz-n.enable [ pkgs.vimPlugins.lzn-auto-require ];
 
   extraConfigLuaPost = lib.mkIf config.plugins.lz-n.enable (
     lib.mkOrder 5000 ''
