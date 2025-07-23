@@ -33,12 +33,10 @@
                 return
               end
 
-               -- Disable autoformat for slow filetypes
               if slow_format_filetypes[vim.bo[bufnr].filetype] then
                 return
               end
 
-               -- Disable autoformat for files in a certain path
               local bufname = vim.api.nvim_buf_get_name(bufnr)
               if bufname:match("/node_modules/") or bufname:match("/.direnv/") then
                 return
@@ -70,14 +68,6 @@
             end
           '';
 
-        # NOTE:
-        # Conform will run multiple formatters sequentially
-        # [ "1" "2" "3"]
-        # Add stop_after_first to run only the first available formatter
-        # { "__unkeyed-1" = "foo"; "__unkeyed-2" = "bar"; stop_after_first = true; }
-        # Use the "*" filetype to run formatters on all filetypes.
-        # Use the "_" filetype to run formatters on filetypes that don't
-        # have other formatters configured.
         formatters_by_ft = {
           bash = [
             "shellcheck"

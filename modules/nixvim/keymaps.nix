@@ -40,6 +40,39 @@
               };
             };
 
+            "<leader>[" = {
+              action = "<C-w>h";
+              options = {
+                desc = "Left window";
+              };
+            };
+            "<leader>]" = {
+              action = "<C-w>l";
+              options = {
+                desc = "Right window";
+              };
+            };
+            "<leader>." = {
+              action = "<C-w>j";
+              options = {
+                desc = "Up window";
+              };
+            };
+            "<leader>," = {
+              action = "<C-w>k";
+              options = {
+                desc = "Down window";
+              };
+            };
+
+            # navigate quickfix list
+            "<C-[>" = {
+              action = "<cmd>cnext<CR>";
+            };
+            "<C-]>" = {
+              action = "<cmd>cprev<CR>";
+            };
+
             "<C-Up>" = {
               action = "<cmd>resize -2<CR>";
             };
@@ -194,6 +227,26 @@
                 desc = "Word Wrap toggle";
               };
             };
+
+            "<leader>uh" = {
+              action.__raw = ''
+                function ()
+                  local curr_foldcolumn = vim.wo.foldcolumn
+                  if curr_foldcolumn ~= "0" then vim.g.last_active_foldcolumn = curr_foldcolumn end
+                  vim.wo.foldcolumn = curr_foldcolumn == "0" and (vim.g.last_active_foldcolumn or "1") or "0"
+                  vim.notify(string.format("Fold Column %s", bool2str(vim.wo.foldcolumn), "info"))
+                end'';
+              options = {
+                desc = "Fold Column toggle";
+              };
+            };
+
+            "<leader>uT" = {
+              action = "<cmd>TabsToggle<CR>";
+              options = {
+                desc = "Toggle tabs/spaces";
+              };
+            };
           };
       visual =
         lib.mapAttrsToList
@@ -231,6 +284,12 @@
               options = {
                 desc = "Indent line";
               };
+            };
+            "K" = {
+              action = "<cmd>m '<-2<CR>gv=gv<cr>";
+            };
+            "J" = {
+              action = "<cmd>m '>+1<CR>gv=gv<cr>";
             };
           };
       insert =
