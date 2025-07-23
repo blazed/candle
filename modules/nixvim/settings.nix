@@ -12,7 +12,7 @@
 
     disable_diagnostics = false;
     disable_autoformat = false;
-    spell_enabled = true;
+    spell_enabled = false;
     colorizing_enabled = false;
     first_buffer_opened = false;
     whitespace_character_enabled = false;
@@ -28,6 +28,10 @@
       };
     };
   };
+
+  colorscheme = "catppuccin";
+  colorschemes.catppuccin.enable = true;
+  luaLoader.enable = true;
 
   opts = {
     completeopt = lib.mkIf (!config.plugins.blink-cmp.enable) [
@@ -57,7 +61,7 @@
     cursorline = true;
     cursorcolumn = false;
     signcolumn = "yes";
-    colorcolumn = "100";
+    colorcolumn = "80,120";
     laststatus = 3;
     fileencoding = "utf-8";
     termguicolors = true;

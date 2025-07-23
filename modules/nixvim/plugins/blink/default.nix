@@ -108,24 +108,6 @@
           };
           keymap = {
             preset = "enter";
-            # NOTE: If you prefer Tab/S-Tab selection
-            # But, find myself accidentally interrupting tabbing for movement
-            # "<A-Tab>" = [
-            #   "snippet_forward"
-            #   "fallback"
-            # ];
-            # "<A-S-Tab>" = [
-            #   "snippet_backward"
-            #   "fallback"
-            # ];
-            # "<Tab>" = [
-            #   "select_next"
-            #   "fallback"
-            # ];
-            # "<S-Tab>" = [
-            #   "select_prev"
-            #   "fallback"
-            # ];
           };
           signature = {
             enabled = true;
@@ -154,7 +136,7 @@
                 local success, node = pcall(vim.treesitter.get_node)
                 if success and node and vim.tbl_contains({ 'comment', 'line_comment', 'block_comment' }, node:type()) then
                   return { 'buffer', 'spell', 'dictionary' }
-                elseif vim.bo.filetype == 'gitcommit' then
+                elseif vim.bo.filetype == 'gitcommit' or vim.o.filetype == 'jjdescription' then
                   local git_sources = { 'buffer', 'spell', 'dictionary' }
                   ${lib.optionalString config.plugins.blink-cmp-git.enable "table.insert(git_sources, 'git')"}
                   ${lib.optionalString (lib.elem pkgs.vimPlugins.blink-cmp-conventional-commits config.extraPlugins) "table.insert(git_sources, 'conventional_commits')"}
@@ -162,13 +144,6 @@
                 ${lib.optionalString config.plugins.avante.enable ''
                   elseif vim.bo.filetype == 'AvanteInput' then
                     return { 'buffer', 'avante' }
-                ''}
-                ${lib.optionalString config.plugins.easy-dotnet.enable ''
-                  elseif vim.bo.filetype == "cs" or vim.bo.filetype == "fsharp" or vim.bo.filetype == "vb" or vim.bo.filetype == "razor" or vim.bo.filetype == "xml" then
-                    -- For .NET filetypes, add easy-dotnet to the sources
-                    local dotnet_sources = vim.deepcopy(common_sources)
-                    table.insert(dotnet_sources, 'easy-dotnet')
-                    return dotnet_sources
                 ''}
                 else
                   return common_sources
@@ -192,7 +167,7 @@
                     module = "blink-cmp-conventional-commits";
                     enabled.__raw = ''
                       function()
-                        return vim.bo.filetype == 'gitcommit'
+                        return vim.bo.filetype == 'gitcommit' or vim.o.filetype == 'jjdescription'
                       end
                     '';
                   };
@@ -213,7 +188,7 @@
                 score_offset = 100;
                 should_show_items.__raw = ''
                   function()
-                    return vim.o.filetype == 'gitcommit' or vim.o.filetype == 'markdown'
+                    return vim.o.filetype == 'gitcommit' or vim.o.filetype == 'markdown' or vim.o.filetype == 'jjdescription'
                   end
                 '';
                 opts = {
@@ -259,17 +234,6 @@
                   only_semantic_versions = true;
                   only_latest_version = false;
                 };
-              };
-              easy-dotnet = lib.mkIf config.plugins.easy-dotnet.enable {
-                module = "easy-dotnet.completion.blink";
-                name = "easy-dotnet";
-                async = true;
-                score_offset = 1000;
-                enabled.__raw = ''
-                  function()
-                    return vim.bo.filetype == "xml"
-                  end
-                '';
               };
               avante = lib.mkIf config.plugins.avante.enable {
                 module = "blink-cmp-avante";

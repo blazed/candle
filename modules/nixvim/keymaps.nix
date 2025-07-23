@@ -65,8 +65,22 @@
                 desc = "Move line down";
               };
             };
+            "j" = {
+              action = "v:count == 0 ? 'gj' : 'j'";
+              options = {
+                desc = "Move cursor down";
+                expr = true;
+              };
+            };
+            "k" = {
+              action = "v:count == 0 ? 'gk' : 'k'";
+              options = {
+                desc = "Move cursor up";
+                expr = true;
+              };
+            };
             "|" = {
-              action = "<Cmd>vplit<CR>";
+              action = "<Cmd>vsplit<CR>";
               options = {
                 desc = "Vertical split";
               };
@@ -75,6 +89,109 @@
               action = "<Cmd>split<CR>";
               options = {
                 desc = "Horizontal split";
+              };
+            };
+            "<leader>b]" = {
+              action = "<cmd>bnext<CR>";
+              options = {
+                desc = "Next buffer";
+              };
+            };
+            "<TAB>" = {
+              action = "<cmd>bnext<CR>";
+              options = {
+                desc = "Next buffer (default)";
+              };
+            };
+            "<leader>b[" = {
+              action = "<cmd>bprevious<CR>";
+              options = {
+                desc = "Previous buffer";
+              };
+            };
+            "<S-TAB>" = {
+              action = "<cmd>bprevious<CR>";
+              options = {
+                desc = "Previous buffer";
+              };
+            };
+            "<leader>ud" = {
+              action.__raw = ''
+                function ()
+                  vim.b.disable_diagnostics = not vim.b.disable_diagnostics
+                  if vim.b.disable_diagnostics then
+                    vim.diagnostic.disable(0)
+                  else
+                    vim.diagnostic.enable(0)
+                  end
+                  vim.notify(string.format("Buffer Diagnostics %s", bool2str(not vim.b.disable_diagnostics), "info"))
+                end'';
+              options = {
+                desc = "Buffer Diagnostics toggle";
+              };
+            };
+
+            "<leader>uD" = {
+              action.__raw = ''
+                function ()
+                  vim.g.disable_diagnostics = not vim.g.disable_diagnostics
+                  if vim.g.disable_diagnostics then
+                    vim.diagnostic.disable()
+                  else
+                    vim.diagnostic.enable()
+                  end
+                  vim.notify(string.format("Global Diagnostics %s", bool2str(not vim.g.disable_diagnostics), "info"))
+                end'';
+              options = {
+                desc = "Global Diagnostics toggle";
+              };
+            };
+
+            "<leader>uf" = {
+              action.__raw = ''
+                function ()
+                  -- vim.g.disable_autoformat = not vim.g.disable_autoformat
+                  vim.cmd('FormatToggle!')
+                  vim.notify(string.format("Buffer Autoformatting %s", bool2str(not vim.b[0].disable_autoformat), "info"))
+                end'';
+              options = {
+                desc = "Buffer Autoformatting toggle";
+              };
+            };
+
+            "<leader>uF" = {
+              action.__raw = ''
+                function ()
+                  -- vim.g.disable_autoformat = not vim.g.disable_autoformat
+                  vim.cmd('FormatToggle')
+                  vim.notify(string.format("Global Autoformatting %s", bool2str(not vim.g.disable_autoformat), "info"))
+                end'';
+              options = {
+                desc = "Global Autoformatting toggle";
+              };
+            };
+
+            "<leader>uS" = {
+              action.__raw = ''
+                function ()
+                  if vim.g.spell_enabled then vim.cmd('setlocal nospell') end
+                  if not vim.g.spell_enabled then vim.cmd('setlocal spell') end
+                  vim.g.spell_enabled = not vim.g.spell_enabled
+                  vim.notify(string.format("Spell %s", bool2str(vim.g.spell_enabled), "info"))
+                end'';
+              options = {
+                desc = "Spell toggle";
+              };
+            };
+
+            "<leader>uw" = {
+              action.__raw = ''
+                function ()
+                  vim.wo.wrap = not vim.wo.wrap
+                  vim.notify(string.format("Wrap %s", bool2str(vim.wo.wrap), "info"))
+                end'';
+              options = {
+                desc = "Word Wrap toggle";
               };
             };
           };

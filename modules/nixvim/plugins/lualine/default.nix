@@ -162,26 +162,6 @@ in
           "filetype"
         ];
 
-        lualine_y = [
-          (lib.mkIf config.plugins.aerial.enable {
-            __unkeyed-1 = "aerial";
-            colored = true;
-
-            depth = 3; # Limit depth for better performance
-            dense = true; # Better for performance
-            dense_sep = ".";
-
-            cond.__raw =
-              #lua
-              ''
-                function()
-                  local aerial_avail, aerial = pcall(require, "aerial")
-                  return aerial_avail and aerial.has_symbols()
-                end
-              '';
-          })
-        ];
-
         lualine_z = [
           {
             __unkeyed-1 = "location";

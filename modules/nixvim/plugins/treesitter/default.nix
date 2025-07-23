@@ -43,16 +43,6 @@
       };
     };
 
-    treesitter-context = {
-      inherit (config.plugins.treesitter) enable;
-      settings = {
-        max_lines = 4;
-        min_window_height = 40;
-        multiwindow = true;
-        separator = "-";
-      };
-    };
-
     treesitter-refactor = {
       inherit (config.plugins.treesitter) enable;
 

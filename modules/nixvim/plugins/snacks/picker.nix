@@ -215,7 +215,6 @@
             desc = "Find spelling suggestions";
           };
         }
-        # Moved to todo-comments module since lazy loading wasn't working
         (lib.mkIf (!config.plugins.todo-comments.lazyLoad.enable) {
           mode = "n";
           key = "<leader>ft";
