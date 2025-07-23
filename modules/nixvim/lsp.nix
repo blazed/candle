@@ -6,7 +6,10 @@
 {
   imports = [
     # keep-sorted start
+    ./lsp/helm-ls.nix
     ./lsp/lspconfig.nix
+    ./lsp/nixd.nix
+    ./lsp/typos-lsp.nix
     # keep-sorted end
   ];
 
@@ -164,7 +167,7 @@
         desc = "Next";
       }
       {
-        __unkeyed-1 = "<leader>a";
+        __unkeyed-1 = "<leader>la";
         desc = "Code Action";
       }
       {

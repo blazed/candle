@@ -33,7 +33,7 @@
               action = "y$";
             };
 
-            "<leader>." = {
+            "<C-c>" = {
               action = "<c-^>";
               options = {
                 desc = "Toggle between buffers";
