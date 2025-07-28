@@ -117,6 +117,12 @@
             timeout_ms = 2000;
             stop_after_first = true;
           };
+          typescriptreact = {
+            __unkeyed-1 = "prettierd";
+            __unkeyed-2 = "biome";
+            timeout_ms = 2000;
+            stop_after_first = true;
+          };
           xml = [
             "xmlformat"
             "xmllint"
