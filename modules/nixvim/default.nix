@@ -17,8 +17,9 @@
       ./keymaps.nix
       ./lsp.nix
       ./lua.nix
-      ./settings.nix
       ./performance.nix
+      ./settings.nix
+      ./usercommands.nix
       # keep-sorted end
     ];
 
