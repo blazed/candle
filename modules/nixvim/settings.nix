@@ -66,7 +66,7 @@
     fileencoding = "utf-8";
     termguicolors = true;
     spelllang = lib.mkDefault [ "en_us" ];
-    spell = true;
+    spell = false;
     wrap = false;
 
     tabstop = 2;
