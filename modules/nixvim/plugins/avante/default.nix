@@ -20,6 +20,24 @@
             model = "unsloth/gpt-oss-20b";
             api_key_name = "LM_API_KEY";
           };
+          lmstudio-qwen3-q4 = {
+            __inherited_from = "openai";
+            endpoint = "http://localhost:1234/v1";
+            model = "qwen3-coder-30b-a3b-instruct@q4_1";
+            api_key_name = "LM_API_KEY";
+          };
+          lmstudio-qwen3-q8 = {
+            __inherited_from = "openai";
+            endpoint = "http://localhost:1234/v1";
+            model = "qwen3-coder-30b-a3b-instruct@q8_k_xl";
+            api_key_name = "LM_API_KEY";
+          };
+          lmstudio-uigen = {
+            __inherited_from = "openai";
+            endpoint = "http://localhost:1234/v1";
+            model = "tesslate_uigen-x-32b-0727";
+            api_key_name = "LM_API_KEY";
+          };
         };
         mappings = {
           ask = "<leader>aaa";
