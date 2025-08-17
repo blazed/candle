@@ -11,6 +11,16 @@
       lazyLoad.settings.event = [ "DeferredUIEnter" ];
 
       settings = {
+        provider = "lmstudio";
+        auto_suggestions_provider = "lmstudio";
+        providers = {
+          lmstudio = {
+            __inherited_from = "openai";
+            endpoint = "http://localhost:1234/v1";
+            model = "unsloth/gpt-oss-20b";
+            api_key_name = "LM_API_KEY";
+          };
+        };
         mappings = {
           ask = "<leader>aaa";
           new_ask = "<leader>aan";
