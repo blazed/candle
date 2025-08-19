@@ -86,5 +86,17 @@
         end
       '';
     };
+
+    ToggleBeastMode = {
+      command.__raw = ''
+        function()
+          require("avante.config").override({
+            system_prompt = ${builtins.toJSON (builtins.readFile ./custom-prompts/beast-mode.md)}
+          })
+          vim.notify("Avante Beast Mode enabled")
+        end
+      '';
+      desc = "Toggle Avante Beast Mode system prompt";
+    };
   };
 }
