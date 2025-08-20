@@ -1,9 +1,29 @@
 {
   config,
+  inputs,
+  system,
   lib,
   ...
 }:
+let
+  mcp-hub = inputs.mcp-hub.packages."${system}".default;
+  mcphub-nvim-upstream = inputs.mcphub-nvim.packages."${system}".default;
+  mcphub-nvim = mcphub-nvim-upstream.overrideAttrs (old: {
+    postInstall = (old.postInstall or "") + ''
+      find $out/doc -type f ! -iname '*.txt' -delete
+    '';
+  });
+in
 {
+  extraPlugins = [
+    mcphub-nvim
+  ];
+  extraConfigLua = ''
+    require("mcphub").setup({
+      cmd = "${mcp-hub}/bin/mcp-hub"
+    })
+  '';
+
   plugins = {
     avante = {
       enable = true;

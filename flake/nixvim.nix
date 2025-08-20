@@ -20,6 +20,7 @@
   perSystem =
     { system, ... }:
     {
+      # mcphub-nvim = inputs.mcphub-nvim.packages."${system}".default;
       nixvimConfigurations = {
         candle = inputs.nixvim.lib.evalNixvim {
           inherit system;

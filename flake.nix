@@ -28,6 +28,10 @@
     devenv.inputs.flake-compat.follows = "flake-compat";
     devenv.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv";
+    mcphub-nvim.url = "github:ravitemer/mcphub.nvim";
+    mcphub-nvim.inputs.nixpkgs.follows = "nixpkgs";
+    mcp-hub.url = "github:ravitemer/mcp-hub";
+    mcp-hub.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
