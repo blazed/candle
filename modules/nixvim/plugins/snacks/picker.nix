@@ -15,6 +15,13 @@
 
       settings = {
         picker = {
+          exclude = [
+            ".git"
+            "node_modules"
+            "target"
+            ".direnv"
+            ".devenv"
+          ];
           actions = {
             calculate_file_truncate_width.__raw = ''
               function(self)
