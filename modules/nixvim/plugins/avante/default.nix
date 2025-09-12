@@ -31,7 +31,8 @@ in
       lazyLoad.settings.event = [ "DeferredUIEnter" ];
 
       settings = {
-        provider = "lmstudio";
+        instruction_file = "avante.md";
+        provider = "copilot";
         auto_suggestions_provider = "lmstudio";
         providers = {
           lmstudio = {

@@ -48,7 +48,7 @@
                 end
               end
 
-              return { timeout_ms = 200, lsp_fallback = true }, on_format
+              return { timeout_ms = 500, lsp_format = "fallback" }, on_format
              end
           '';
 

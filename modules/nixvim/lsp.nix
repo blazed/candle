@@ -32,7 +32,10 @@
         };
       };
 
+      bashls.enable = true;
+      biome.enable = true;
       cssls.enable = true;
+      docker_compose_language_service.enable = true;
       dockerls.enable = true;
       fsautocomplete.enable = true;
       gopls.enable = true;
@@ -40,9 +43,20 @@
       jsonls.enable = true;
       lua_ls.enable = true;
       markman.enable = true;
+      terraformls = {
+        enable = true;
+        settings = {
+          filetypes = [
+            "terraform"
+            "tf"
+            "hcl"
+          ];
+        };
+      };
       nushell.enable = true;
       sqls.enable = true;
       statix.enable = true;
+      tailwindcss.enable = true;
       yamlls.enable = true;
     };
   };
