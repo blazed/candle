@@ -18,7 +18,7 @@
 
     servers = {
       "*" = {
-        settings = {
+        config = {
           capabilities = {
             textDocument = {
               semanticTokens = {
@@ -45,7 +45,7 @@
       markman.enable = true;
       terraformls = {
         enable = true;
-        settings = {
+        config = {
           filetypes = [
             "terraform"
             "tf"
