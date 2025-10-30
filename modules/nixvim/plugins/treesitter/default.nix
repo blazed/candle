@@ -46,20 +46,22 @@
     treesitter-refactor = {
       inherit (config.plugins.treesitter) enable;
 
-      highlightDefinitions = {
-        enable = true;
-        clearOnCursorMove = true;
-      };
-      smartRename = {
-        enable = true;
-        keymaps = {
-          # NOTE: default is "grr"
-          # Changed from grR to gR to avoid conflict with gr (References)
-          smartRename = "gR";
+      settings = {
+        highlightDefinitions = {
+          enable = true;
+          clearOnCursorMove = true;
         };
-      };
-      navigation = {
-        enable = true;
+        smartRename = {
+          enable = true;
+          keymaps = {
+            # NOTE: default is "grr"
+            # Changed from grR to gR to avoid conflict with gr (References)
+            smartRename = "gR";
+          };
+        };
+        navigation = {
+          enable = true;
+        };
       };
     };
   };
