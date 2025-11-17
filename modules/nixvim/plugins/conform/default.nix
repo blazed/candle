@@ -108,7 +108,6 @@
             "shfmt"
           ];
           sql = [ "sqlfluff" ];
-          swift = [ "swift_format" ];
           terraform = [ "terraform_fmt" ];
           toml = [ "taplo" ];
           typescript = {
@@ -171,7 +170,6 @@
           squeeze_blanks.command = lib.getExe' pkgs.coreutils "cat";
           stylelint.command = lib.getExe pkgs.stylelint;
           stylua.command = lib.getExe pkgs.stylua;
-          swift_format.command = lib.getExe pkgs.swift-format;
           taplo.command = lib.getExe pkgs.taplo;
           terraform_fmt.command = lib.getExe pkgs.terraform;
           xmlformat.command = lib.getExe pkgs.xmlformat;
