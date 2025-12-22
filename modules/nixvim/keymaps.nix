@@ -1,5 +1,4 @@
 {
-  helpers,
   lib,
   ...
 }:
@@ -319,7 +318,7 @@
             };
           };
     in
-    helpers.keymaps.mkKeymaps { options.silent = true; } (normal ++ visual ++ insert);
+    lib.nixvim.keymaps.mkKeymaps { options.silent = true; } (normal ++ visual ++ insert);
 
   plugins.which-key.settings.spec = [
     {

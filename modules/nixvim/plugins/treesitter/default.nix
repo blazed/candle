@@ -1,8 +1,6 @@
 {
   config,
   lib,
-  self,
-  system,
   ...
 }:
 {
@@ -10,7 +8,7 @@
     treesitter = {
       enable = true;
 
-      folding = true;
+      folding.enable = true;
       grammarPackages = config.plugins.treesitter.package.passthru.allGrammars;
       nixvimInjections = true;
 
