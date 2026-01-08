@@ -9,10 +9,14 @@
       plugins = true;
     };
     combinePlugins = {
-      enable = true;
+      # NOTE: disabled due to treesitter query file conflicts
+      enable = false;
       standalonePlugins = with pkgs.vimPlugins; [
+        "catppuccin-nvim"
         "neotest"
         "nvim-treesitter"
+        "nvim-treesitter-refactor"
+        "snacks-nvim"
         mini-nvim
         overseer-nvim
         vs-tasks-nvim
