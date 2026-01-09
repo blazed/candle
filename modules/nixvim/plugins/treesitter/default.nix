@@ -40,28 +40,6 @@
         };
       };
     };
-
-    treesitter-refactor = {
-      inherit (config.plugins.treesitter) enable;
-
-      settings = {
-        highlightDefinitions = {
-          enable = true;
-          clearOnCursorMove = true;
-        };
-        smartRename = {
-          enable = true;
-          keymaps = {
-            # NOTE: default is "grr"
-            # Changed from grR to gR to avoid conflict with gr (References)
-            smartRename = "gR";
-          };
-        };
-        navigation = {
-          enable = true;
-        };
-      };
-    };
   };
 
   keymaps = lib.mkIf config.plugins.treesitter-context.enable [
