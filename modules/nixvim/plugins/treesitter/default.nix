@@ -12,33 +12,11 @@
       grammarPackages = config.plugins.treesitter.package.passthru.allGrammars;
       nixvimInjections = true;
 
-      settings = {
-        highlight = {
-          additional_vim_regex_highlighting = true;
-          enable = true;
-          disable =
-            # Lua
-            ''
-              function(lang, bufnr)
-                return vim.api.nvim_buf_line_count(bufnr) > 10000
-              end
-            '';
-        };
-
-        incremental_selection = {
-          enable = true;
-          keymaps = {
-            init_selection = "gnn";
-            node_incremental = "grn";
-            scope_incremental = "grc";
-            node_decremental = "grm";
-          };
-        };
-
-        indent = {
-          enable = true;
-        };
-      };
+      # nvim-treesitter main branch: highlighting/indent are driven by Nixvim's
+      # native treesitter setup rather than the legacy `settings` module options.
+      # Large-file handling is covered by `plugins.snacks` bigfile.
+      highlight.enable = true;
+      indent.enable = true;
     };
   };
 

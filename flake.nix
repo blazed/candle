@@ -32,7 +32,7 @@
     mcphub-nvim.inputs.nixpkgs.follows = "nixpkgs";
     mcp-hub.url = "github:ravitemer/mcp-hub";
     mcp-hub.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim";
     nix2container.url = "github:nlewo/nix2container";

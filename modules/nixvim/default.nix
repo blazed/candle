@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   self,
   ...
@@ -24,6 +25,10 @@
     ];
 
   nixpkgs = {
+    # Pin to the nixpkgs our flake input follows. Defining this explicitly
+    # silences Nixvim's warning about its pinned nixpkgs being overridden by
+    # `inputs.nixvim.inputs.nixpkgs.follows`.
+    source = inputs.nixpkgs;
     overlays = lib.attrValues self.overlays;
     config.allowUnfree = true;
   };
